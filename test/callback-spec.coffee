@@ -1,34 +1,33 @@
-ReturnValue = require '../src/return-value'
+CallbackComponent = require '../src/callback'
 
-describe 'ReturnValue', ->
+describe 'CallbackComponent', ->
   it 'should exist', ->
-    @sut = new ReturnValue
+    @sut = new CallbackComponent
 
   describe '-> onEnvelope', ->
     it 'should raise an exception', ->
       func = => @sut.onEnvelope()
       expect(func).to.throw 'onEnvelope is not implemented'
 
-  describe 'a fake subclass of ReturnValue that implements onEnvelope', ->
+  describe 'a fake subclass of CallbackComponent that implements onEnvelope', ->
     beforeEach ->
-      @onEnvelopeSpy = onEnvelopeSpy = sinon.stub().returns fo: 'sho'
+      @onEnvelopeSpy = onEnvelopeSpy = sinon.stub().yields null, fo: 'sho'
 
-      class TallBuilding extends ReturnValue
+      class CatGravity extends CallbackComponent
         onEnvelope: onEnvelopeSpy
 
-      @tallBuilding = new TallBuilding
+      @catGravity = new CatGravity
 
     describe 'when the class is written to', ->
       beforeEach (done) ->
-        @tallBuilding.on 'end', done
+        @catGravity.on 'end', done
 
         @things = []
-        @tallBuilding.on 'readable', =>
-          while thing = @tallBuilding.read()
+        @catGravity.on 'readable', =>
+          while thing = @catGravity.read()
             @things.push thing
 
-
-        @tallBuilding.write
+        @catGravity.write
           message: 'very tall house'
           config: {}
           data: {}
@@ -39,11 +38,11 @@ describe 'ReturnValue', ->
           config: {}
           data: {}
 
-      it 'should make onEnvelope return value readable', ->
+      it 'should make onEnvelope callback value readable', ->
         expect(@things).to.deep.contain fo: 'sho'
 
     describe 'when the class is written to with a callback', ->
       beforeEach (done) ->
-        @tallBuilding.write {}, done
+        @catGravity.write {}, done
 
       it 'should get here', ->

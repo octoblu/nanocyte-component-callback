@@ -1,5 +1,5 @@
-# nanocyte-component-return-value
-Base class for simple nanocyte integration
+# nanocyte-component-component-callback
+Base class for callback-driven nanocyte integration
 
 [![Build Status](https://travis-ci.org/octoblu/nanocyte-component-callback.svg?branch=master)](https://travis-ci.org/octoblu/nanocyte-component-callback)
 [![Code Climate](https://codeclimate.com/github/octoblu/nanocyte-component-callback/badges/gpa.svg)](https://codeclimate.com/github/octoblu/nanocyte-component-callback)

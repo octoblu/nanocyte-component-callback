@@ -3,7 +3,7 @@ node_js:
 - '0.11'
 addons:
   code_climate:
-    repo_token: <REPO TOKEN GOES HERE>
+    repo_token: 35cd24a133c15d9f45b497ef88ea0cc26fb267a4a7705c7607fa8a13cc60cbc2
 before_script:
 - npm install -g codeclimate-test-reporter
 after_script:
@@ -12,7 +12,7 @@ deploy:
   provider: npm
   email: serveradmin@octoblu.com
   api_key:
-    secure: HW8pQFaJaqmpLZGytjcZzno7YFrMyzAByvwZ30LZpONV0v1Qb+hbJYVb8VWr+kTX51iTh/SSynaLvI5vgSdTibvadgqtHkBZeiaNtDrt+KlnRPTUy6BHLdBj83zYnDxE7pJtfIFGFGfAJ5l2tFN6aLe39MblZcFSY8xrkZlZRR/ar74ct8pWoTxzxjWc+iLpeDRtwUhSE397MYEPKowq3WNkAF1vK8Ig6E1PqxXn7q9uyYj5nNSP6772pItJALDWp9XTdJ3L9P+cq+22Q7Xf7FbyGdSv3bQ56IAgFInDTGs34pb4HkFnop2Taps24Jz6od1L6cgpusjc/sPSAGvq1S5w8nWqko1BDUVnACSZl9XtmyamZO+WcGxr/aTv2Et8/hh4hBLaPU4J9bd8JRpaXEPCT7F6jls/y3qTFif9MXvhl++McDqRnjjY9MddX8M9reH1/+I6gOlp/N8eUHTiACXjDKVa0ZBKFI9vQG+DyCZwsFP68MBYE+YHWGKflgEy5aiHDThaKMqX75jV+2xbb4HjBHJ6OZYDTiiWig+ts3QJOxn3/gRAi+IEFcmMsgtBDhPToJt4+0DMy/8jHHhLgpuqOlVjV9pRqcUxm5uZidE0S68w02c7Vh6taexM7V3uyR6miTrRJrQfxUtrUnP+D4HGKNPltJHgSq5977NAOi8=
+    secure: 4i9PTv9dOfV7QvWzc0hSEsZb9KqkGmzOUW+MnzBZcwkZSHrVjM+cI+37wLSBHZMLIvclo7hHZnb7FkDXJ9Ta4vTRgzZ/EtL5A2qHZF5Uvg+481p9EZ/OUZiRCxDn5m+BobwTQYNzanA3Chm3xq55mI8cuvlwNUv4P3E8bXrz9MHeGALXBTQwxtyv8h9JpANCCVKOrlq7HciA50JDh1J+znp17/Vm/HP5gCylHP9O2JLDrTtk6yt3yC/GJQ4N/tVzZRbr3AD3SzlffVYwX8YKsDTMJJVaa5YLO2x950C7jSBhaAzWb+NPrd4T1TYMWvqir9b4MvMOG72Y6WNrN2Eb/kuwGRo4LqMkee6gBI6fDkYPqJeyc05t33vbpkYwOA6cMUQiX7vPlT/qvdsJYqsjg9y4PgIYElSHsvkw4422W8S7T9+Y6+5rzP4KObdQJt0oWDx2IwGECdXfaBM/nHhchQPBefDmeB4xaHaAt9Whlg7qMT849GlN+lv6lD/6w/v42jK/BHj2/E9xWY/RH1bjbggIC8mwmUyfQ9mHbUuaW3lJ6tS1PbSgDnE2fkT26uA+H312E9ZPdS80saGCB7pwxjeIfP1rfJrHfHA/FnI82G/4ts59afbW808OHFP2Osp25h3Pkvh9dIL+qOEd2WN9WIxhiV/P2dOg4YIfqagTOH4=
   on:
     tags: true
     branches: true
