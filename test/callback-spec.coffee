@@ -46,3 +46,36 @@ describe 'CallbackComponent', ->
         @catGravity.write {}, done
 
       it 'should get here', ->
+
+  describe 'a fake subclass of CallbackComponent that yields an error', ->
+    beforeEach ->
+      @onEnvelopeSpy = onEnvelopeSpy = sinon.stub().yields new Error 'Bludgeoned with trophy'
+
+      class GleamingAward extends CallbackComponent
+        onEnvelope: onEnvelopeSpy
+
+      @gleamingAward = new GleamingAward
+
+    describe 'when the class is written to', ->
+      beforeEach (done) ->
+        @gleamingAward.on 'end', done
+        @gleamingAward.on 'error', (@error) =>
+
+        @things = []
+        @gleamingAward.on 'readable', =>
+          while thing = @gleamingAward.read()
+            @things.push thing
+
+        @gleamingAward.write
+          message: 'very tall house'
+          config: {}
+          data: {}
+
+      it 'should call onEnvelope with the envelope', ->
+        expect(@onEnvelopeSpy).to.have.been.calledWith
+          message: 'very tall house'
+          config: {}
+          data: {}
+
+      it 'should emit the callback error on error', ->
+        expect(=> throw @error).to.throw 'Bludgeoned with trophy'

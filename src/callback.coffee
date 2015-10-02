@@ -9,6 +9,10 @@ class CallbackComponent extends Transform
 
   _transform: (envelope, enc, next) =>
     @onEnvelope envelope, (error, message) =>
+      if error?
+        next error
+        @push null
+        return
       @push message
       @push null
       next()
